@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     // В dev-режиме запросы к /api проксируются на Go-бэкенд (порт 8080).
     proxy: {
-      "/api": "http://localhost:8080",
+      "/api": import.meta.env.VITE_API_URL,
     },
   },
 });
