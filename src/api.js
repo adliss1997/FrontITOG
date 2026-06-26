@@ -1,6 +1,6 @@
 // Тонкая обёртка над fetch. В dev /api проксируется Vite на :8080,
 // в проде фронтенд раздаётся тем же Go-сервером (тот же origin).
-const BASE = "/api";
+const BASE = import.meta.env.VITE_API_URL;
 
 async function request(path, options = {}) {
   const res = await fetch(BASE + path, {
